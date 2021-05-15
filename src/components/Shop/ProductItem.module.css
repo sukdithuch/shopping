@@ -1,0 +1,8 @@
+.item img {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+}
+.item {
+    float: left;
+}

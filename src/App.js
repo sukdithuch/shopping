@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import Layout from "../src/components/Layout/Layout";
+import Cart from "../src/components/Cart/Cart";
+import Products from "./components/Shop/Products";
 
 function App() {
+  const showCart = useSelector((state) => state.ui.cartVisible);
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    fetch("https://shopping-7f8a2-default-rtdb.firebaseio.com/cart.json", {
+      method: "PUT",
+      body: JSON.stringify(cart),
+    });
+  }, [cart]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Layout>
+        {showCart && <Cart />}
+        <Products />
+      </Layout>
+    </Fragment>
   );
 }
 
