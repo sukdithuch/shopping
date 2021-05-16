@@ -1,20 +1,31 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
+import { uiActions } from "../../store/ui-slice";
 import CartButton from "../Cart/CartButton";
 import classes from "./MainHeader.module.css";
 
 const MainHeader = (props) => {
-    return (
-        <header className={classes.header}>
-            <h1>SHOPPING</h1>
-            <nav>
-                <ul>
-                    <li><CartButton /></li>
-                </ul>
-            </nav>
-        </header>
-        
-    );
+  const dispatch = useDispatch();
+
+  const homeHandler = () => {
+    dispatch(uiActions.close());
+  };
+
+  return (
+    <header className={classes.header}>
+      <button className={classes.btn} onClick={homeHandler}>
+        SHOPPING
+      </button>
+      <nav>
+        <ul>
+          <li>
+            <CartButton />
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 };
 
 export default MainHeader;
