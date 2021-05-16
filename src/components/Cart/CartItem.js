@@ -13,7 +13,6 @@ const CartItem = (props) => {
     dispatch(cartActions.removeFromCart(id));
   };
 
-
   const addItem = () => {
     dispatch(
       cartActions.addToCart({
@@ -24,7 +23,6 @@ const CartItem = (props) => {
     );
   };
 
-  
   return (
     <li className={classes.item}>
       <header>

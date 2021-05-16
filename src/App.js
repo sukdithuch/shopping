@@ -7,6 +7,7 @@ import Products from "./components/Shop/Products";
 
 function App() {
   const showCart = useSelector((state) => state.ui.cartVisible);
+  const showProduct = useSelector((state) => state.ui.productVisible);
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function App() {
     <Fragment>
       <Layout>
         {showCart && <Cart />}
-        <Products />
+        {showProduct && <Products />}
       </Layout>
     </Fragment>
   );

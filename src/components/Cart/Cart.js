@@ -1,12 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Card from "../UI/Card";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
+import { uiActions } from "../../store/ui-slice";
 
 const Cart = (props) => {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+
+  const showProductHandler = () => {
+    dispatch(uiActions.close());
+  };
+
+  const totalPriceItems = cartItems.reduce(
+    (sumItem, Item) => sumItem + Item.quantity * Item.price,
+    0
+  );
 
   return (
     <Card className={classes.cart}>
@@ -25,6 +36,8 @@ const Cart = (props) => {
           />
         ))}
       </ul>
+      <h1>ราคาทั้งหมด {totalPriceItems} บาท</h1>
+      <button onClick={showProductHandler}>กลับไปหน้าสินค้า</button>
     </Card>
   );
 };
