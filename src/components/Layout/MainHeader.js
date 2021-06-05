@@ -1,26 +1,21 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
 
-import { uiActions } from "../../store/ui-slice";
 import CartButton from "../Cart/CartButton";
 import classes from "./MainHeader.module.css";
 
 const MainHeader = (props) => {
-  const dispatch = useDispatch();
-
-  const homeHandler = () => {
-    dispatch(uiActions.close());
-  };
-
   return (
     <header className={classes.header}>
-      <button className={classes.btn} onClick={homeHandler}>
+      <NavLink to="/" className={classes.logo}>
         SHOPPING
-      </button>
+      </NavLink>
       <nav>
         <ul>
           <li>
-            <CartButton />
+            <Link to="/cart">
+              <CartButton />
+            </Link>
           </li>
         </ul>
       </nav>

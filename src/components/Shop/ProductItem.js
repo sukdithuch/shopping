@@ -1,24 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { cartActions } from "../../store/cart-slice";
 import Card from "../UI/Card";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = (props) => {
-  const dispatch = useDispatch();
-
   const { title, imgUrl, price, id } = props;
-
-  const addItem = () => {
-    dispatch(
-      cartActions.addToCart({
-        id,
-        title,
-        price,
-      })
-    );
-  };
 
   return (
     <div className={classes.item}>
@@ -30,9 +17,14 @@ const ProductItem = (props) => {
           <h1>฿{price.toFixed(2)}</h1>
           <p>{title}</p>
         </header>
-        <div>
-          <button onClick={addItem}>Add to Cart</button>
-        </div>
+        <Link
+          to={{
+            pathname: `/products/${id}`,
+            state: { product: props },
+          }}
+        >
+          <button>รายละเอียด</button>
+        </Link>
       </Card>
     </div>
   );

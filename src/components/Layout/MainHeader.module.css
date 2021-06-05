@@ -7,9 +7,10 @@
   background-color: #252424;
 }
 
-.btn {
+.logo {
   font-weight: bold;
   font-size: 2rem;
+  text-decoration: none;
   color: white;
   background-color: #252424;
   border: none;
@@ -17,9 +18,9 @@
   padding: 0;
 }
 
-.btn:hover,
-.btn:active {
-  background-color: #252424;
+.logo:hover,
+.logo:active {
+  color:darkcyan;
 }
 
 .header ul {

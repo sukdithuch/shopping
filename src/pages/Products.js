@@ -1,7 +1,7 @@
 import React from "react";
 
-import Data from "../../Data";
-import ProductItem from "./ProductItem";
+import Data from "../Data";
+import ProductItem from "../components/Shop/ProductItem";
 import classes from "./Products.module.css";
 
 const { DATA_PRODUCTS } = Data;
