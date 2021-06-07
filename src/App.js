@@ -1,23 +1,13 @@
-import React, { Fragment, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { Fragment } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import Layout from "../src/components/Layout/Layout";
 import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
+import Checkout from "./pages/Checkout";
 
 function App() {
-  // const showCart = useSelector((state) => state.ui.cartVisible);
-  // const showProduct = useSelector((state) => state.ui.productVisible);
-  const cart = useSelector((state) => state.cart);
-
-  useEffect(() => {
-    fetch("https://shopping-7f8a2-default-rtdb.firebaseio.com/cart.json", {
-      method: "PUT",
-      body: JSON.stringify(cart),
-    });
-  }, [cart]);
 
   return (
     <Fragment>
@@ -34,6 +24,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </Layout>

@@ -14,6 +14,8 @@ const Cart = (props) => {
     0
   );
 
+  const hasItems = cartItems.length > 0;
+
   return (
     <Card className={classes.cart}>
       <h2>ตะกร้าสินค้า</h2>
@@ -33,8 +35,18 @@ const Cart = (props) => {
       </ul>
       <h1>ราคาทั้งหมด {totalPriceItems} บาท</h1>
       <Link to="/" className={classes.btn}>
-        กลับไปหน้าสินค้า
+        <button>กลับไปหน้าสินค้า</button>
       </Link>
+      {hasItems && (
+        <Link
+          to={{
+            pathname: "/checkout",
+          }}
+          className={classes.order}
+        >
+          <button>สั่งซื้อสินค้า</button>
+        </Link>
+      )}
     </Card>
   );
 };

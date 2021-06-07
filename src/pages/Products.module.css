@@ -10,3 +10,15 @@
     padding: 0;
     max-width: 40.125rem;
 }
+
+.productsLoading {
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+}
+
+.productsError {
+  text-align: center;
+  color: red;
+  margin-top: 1rem;
+}
