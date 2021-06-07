@@ -1,35 +1,33 @@
 .cart {
-    max-width: 30rem;
-    background-color: #313131;
-    color: white;
-    margin: 1rem auto;
-  }
-  
-  .cart h2 {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
-  }
-  
-  .cart ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  max-width: 30rem;
+  background-color: #313131;
+  color: white;
+  margin: 1rem auto;
+}
 
-  .btn {
-    font: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    background-color:#3f3f3f;
-    color:aliceblue;
-    border: 1px solid black;
-  }
-  
-  .btn:hover,
-  .btn:active {
-    background-color:cadetblue;
-    border-color: cadetblue;
-    color: white;
-  }
+.cart h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn button {
+  margin-right: 0.5rem;
+}
+
+.order button {
+  background-color: white;
+  color: black;
+}
+
+.order button:hover,
+.order button:active {
+  background-color: crimson;
+  border-color: white;
+  color: white;
+}

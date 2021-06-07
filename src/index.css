@@ -16,6 +16,6 @@ button {
 button:hover,
 button:active {
   background-color:cadetblue;
-  border-color: cadetblue;
+  border-color: white;
   color: white;
 }
