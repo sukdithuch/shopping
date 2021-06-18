@@ -12,7 +12,7 @@ const Products = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://shopping-7f8a2-default-rtdb.firebaseio.com/products.json"
+        "https://shopping-server-sql.herokuapp.com/api/products"
       );
 
       if (!response.ok) {
@@ -28,9 +28,9 @@ const Products = (props) => {
 
       for (const key in responseData) {
         loadedProducts.push({
-          id: key,
+          id: responseData[key].id,
           name: responseData[key].name,
-          img_url: responseData[key].img_url,
+          img_url: responseData[key].imgUrl,
           price: responseData[key].price,
           detail: responseData[key].detail,
           category: responseData[key].category

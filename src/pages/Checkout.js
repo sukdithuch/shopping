@@ -80,18 +80,23 @@ const Checkout = (props) => {
     });
   };
 
-  const submitOrder = async (userData) => {
+  const submitOrder = (userData) => {
     setIsSubmitting(true);
-    await fetch(
-      "https://shopping-7f8a2-default-rtdb.firebaseio.com/order.json",
+    fetch(
+      "https://shopping-server-sql.herokuapp.com/api/order",
       {
         method: "POST",
         body: JSON.stringify({
           user: userData,
           orderedItems: cartItems,
         }),
-      }
-    );
+        headers: {
+          'Content-Type': 'application/json',
+        },        
+      })
+      .then((response) => {
+        console.log(response);
+      });
     setIsSubmitting(false);
     setDidSubmit(true);
     clearDataCart();
