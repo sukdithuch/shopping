@@ -83,11 +83,12 @@ const Checkout = (props) => {
   const submitOrder = (userData) => {
     setIsSubmitting(true);
     fetch(
-      "https://shopping-server-sql.herokuapp.com/api/user-order",
+      "https://shopping-server-sql.herokuapp.com/api/user/order",
       {
         method: "POST",
         body: JSON.stringify({
           user: userData,
+          orderedItems: cartItems,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -97,21 +98,24 @@ const Checkout = (props) => {
         console.log(response);
       });
 
-      fetch(
-        "https://shopping-server-sql.herokuapp.com/api/order-items",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            user: userData,
-            orderedItems: cartItems,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },        
-        })
-        .then((response) => {
-          console.log(response);
-        });
+      // fetch(
+      //   "https://shopping-server-sql.herokuapp.com/api/order-items",
+      //   {
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //       user: userData,
+      //       orderedItems: cartItems,
+      //     }),
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },        
+      //   })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.error('itemsError:', error);
+      //   });
 
     setIsSubmitting(false);
     setDidSubmit(true);
