@@ -96,7 +96,10 @@ const Checkout = (props) => {
       })
       .then((response) => {
         console.log(response);
-      });
+      })
+      .catch((err) => {
+      return err;
+      )};
 
     setIsSubmitting(false);
     setDidSubmit(true);
