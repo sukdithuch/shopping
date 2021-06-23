@@ -94,12 +94,17 @@ const Checkout = (props) => {
           'Content-Type': 'application/json',
         },        
       })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-      return err;
-      )};
+//       .then((response) => {
+//         console.log(response);
+//       })
+      .then(response => response.json())
+      .then(result => {
+         console.log('Success:', result);
+        })
+      .catch(error => {
+          console.error('Error:', error);
+        });
+      
 
     setIsSubmitting(false);
     setDidSubmit(true);
